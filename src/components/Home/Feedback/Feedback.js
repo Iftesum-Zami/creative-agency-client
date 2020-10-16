@@ -4,6 +4,7 @@ import customer1 from '../../../images/customer1.png';
 import customer2 from '../../../images/customer2.png';
 import customer3 from '../../../images/customer3.png';
 import FeedbackCard from '../FeedbackCard/FeedbackCard';
+import UserFeedback from '../UserFeedback/UserFeedback';
 
 const localReviews = [
     {
@@ -30,14 +31,6 @@ const localReviews = [
 ]
 
 const Feedback = () => {
-    const [reviews, setReviews] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/loadReview')
-        .then(res => res.json())
-        .then(data => {
-            setReviews(data)
-        })
-    }, [])
 
     return (
         <div className="mt-5 mb-5">
@@ -45,9 +38,10 @@ const Feedback = () => {
             <div className="container">
                 <div className="row">
                     {
-                        reviews.map(review => <FeedbackCard review={review}></FeedbackCard>)
+                        localReviews.map(review => <FeedbackCard review={review}></FeedbackCard>)
                     }
                 </div>
+                <UserFeedback></UserFeedback>
             </div>
         </div>
     );

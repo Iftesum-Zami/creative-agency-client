@@ -9,7 +9,7 @@ const Orders = () => {
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://evening-taiga-61842.herokuapp.com/addOrder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(data)
@@ -26,12 +26,12 @@ const Orders = () => {
                 <Sidebar></Sidebar>
             </div>
             <div className="col-md-10">
-                <nav className="d-flex justify-content-between">
+                <nav className="d-flex justify-content-between pt-3 pb-2">
                     <h5>Orders</h5>
                     <h6>{loggedInUser.name}</h6>
                 </nav>
 
-                <div style={{backgroundColor: 'lightblue'}}>
+                <div style={{backgroundColor: '#F5F6FA'}}>
                     <form className="p-5 col-md-6" onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
                             <input type="text" ref={register({ required: true })} name="name" placeholder="Your Name" className="form-control" />
@@ -39,7 +39,7 @@ const Orders = () => {
 
                         </div>
                         <div className="form-group">
-                            <input type="text" ref={register({ required: true })} name="email" placeholder="Your email address" className="form-control" />
+                            <input type="email" ref={register({ required: true })} name="email" placeholder="Your email address" className="form-control" />
                             {errors.email && <span className="text-danger">This field is required</span>}
                         </div>
                         <div className="form-group">

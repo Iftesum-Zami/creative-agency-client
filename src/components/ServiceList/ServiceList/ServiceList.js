@@ -10,7 +10,7 @@ const ServiceList = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/loadOrder?email='+loggedInUser.email)
+        fetch('https://evening-taiga-61842.herokuapp.com/loadOrder')
         .then(res => res.json())
         .then(data => {
             setOrders(data)
@@ -23,12 +23,12 @@ const ServiceList = () => {
                 <Sidebar></Sidebar>
             </div>
             <div className="col-md-10">
-                <nav className="d-flex justify-content-between">
+                <nav className="d-flex justify-content-between pt-3 pb-2">
                     <h5>Service List</h5>
                     <h6>{loggedInUser.name}</h6>
                 </nav>
 
-                <div style={{backgroundColor: 'lightblue', height: '100%'}}>
+                <div style={{backgroundColor: '#F5F6FA', height: '100%'}}>
                     <div className="row pt-5">
                         {
                             orders.map(order => <ServiceListCard order={order}></ServiceListCard>)

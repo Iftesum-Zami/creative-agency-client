@@ -13,6 +13,9 @@ import Login from './components/Login/Login/Login';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import Review from './components/Review/Review/Review';
 import ServiceList from './components/ServiceList/ServiceList/ServiceList';
+import AddService from './components/AddService/AddService';
+import MakeAdmin from './components/MakeAdmin/MakeAdmin';
+import AdminService from './components/AdminService/AdminService';
 
 export const UserContext = createContext();
 
@@ -27,21 +30,33 @@ function App() {
             <Home></Home>
           </Route>
 
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+
           <PrivateRoute path="/order">
             <Orders></Orders>
           </PrivateRoute>
 
-          <Route path="/review">
+          <PrivateRoute path="/review">
             <Review></Review>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/service">
+          <PrivateRoute path="/service">
             <ServiceList></ServiceList>
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/login">
-            <Login></Login>
-          </Route>
+          <PrivateRoute path="/addService">
+            <AddService></AddService>
+          </PrivateRoute>
+
+          <PrivateRoute path="/makeAdmin">
+            <MakeAdmin></MakeAdmin>
+          </PrivateRoute>
+
+          <PrivateRoute path="/adminService">
+            <AdminService></AdminService>
+          </PrivateRoute>
 
           <Route exact path="/">
             <Home></Home>

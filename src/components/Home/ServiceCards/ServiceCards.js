@@ -2,6 +2,7 @@ import React from 'react';
 import service1 from '../../../images/icons/service1.png';
 import service2 from '../../../images/icons/service2.png';
 import service3 from '../../../images/icons/service3.png';
+import ServiceCardsAdmin from '../ServiceCardsAdmin/ServiceCardsAdmin';
 import SingleServiceCard from '../SingleServiceCard/SingleServiceCard';
 
 const services = [
@@ -34,6 +35,7 @@ const ServiceCards = () => {
                     services.map(service => <SingleServiceCard service={service}></SingleServiceCard>) 
                 }
             </div>
+            <ServiceCardsAdmin></ServiceCardsAdmin>
         </div>
     );
 };
